@@ -1,0 +1,3 @@
+CREATE USER ouva WITH PASSWORD 'secret';
+CREATE DATABASE heartbeat_db OWNER ouva;
+GRANT ALL PRIVILEGES ON DATABASE heartbeat_db TO ouva;

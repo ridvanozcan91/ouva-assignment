@@ -1,0 +1,50 @@
+server:
+  port: 8080
+  shutdown: graceful
+  compression:
+    enabled: true
+
+spring:
+  application:
+    name: ouva-backend-assignment
+
+  kafka:
+    consumer:
+      bootstrap-servers: ${KAFKA_HOST:localhost}:${KAFKA_PORT:29092}
+      group-id: ${spring.application.name}-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        # Spring generates appropriate JSON deserializer mappings according to these definitions
+        spring:
+          json:
+            trusted:
+              packages: '*'
+            value:
+              default:
+                type: 'co.ouva.assignment.dto.HeartbeatMessage'
+
+  jpa:
+    hibernate:
+      # You can use any ddl-auto setting you want!
+      # We don't expect any DB migration/versioning during this assignment.
+      # "create-drop", "create", "update", "none", "validate"
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${DB_NAME:heartbeat_db}
+    username: ${DB_USERNAME:ouva}
+    # There is no shame in setting this plainly since this is just an assignment project
+    password: ${DB_PASSWORD:secret}
+
+graphql:
+  servlet:
+    cors-enabled: false
+    max-query-depth: 8
+    exception-handlers-enabled: true
+  tools:
+    introspection-enabled: true
