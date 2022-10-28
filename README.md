@@ -15,7 +15,7 @@ Read the description below. If you believe the assignment will take longer, let 
 
 We recommend you focus on the core requirements first, then work on any additional features if you have the time. By 4 hours in, please feel free to stop working and explain what refactors / code organization / enhancements you would have made with more time.
 
-> You have 2 week to complete the task. We think that gives you enough time if you need to split the work throughout the week. Let us know if you have a situation that requires you to have more time.
+> You have 1 week to complete the task. We think that gives you enough time if you need to split the work throughout the week. Let us know if you have a situation that requires you to have more time.
 
 ## The Task
 
@@ -88,7 +88,7 @@ Test your code with your framework of choice and show coverage report. We want t
 
 ## Deploy
 
-Save your code base to a public GitHub or GitLab repository with a `Dockerfile`. We will build your application with the `Dockerfile` you provided in your project, and will run your image according to your directions. Do your best to minimize your docker image.
+Save your code base to a private GitHub or GitLab repository with a `Dockerfile`. We will build your application with the `Dockerfile` you provided in your project, and will run your image according to your directions. Do your best to minimize your docker image.
 
 ## Documentation
 
