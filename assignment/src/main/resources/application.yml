@@ -42,6 +42,8 @@ spring:
     password: ${DB_PASSWORD:secret}
 
 graphql:
+  graphiql:
+    enabled: true
   servlet:
     cors-enabled: false
     max-query-depth: 8

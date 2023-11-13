@@ -1,0 +1,15 @@
+type Query {
+    anomaliesByRoomId(roomId: ID!): [AnomalyRecord]
+}
+
+type AnomalyRecord {
+    redSignal: String
+    roomId: String
+    time: String,
+    room: Room
+}
+
+type Room {
+    id: ID,
+    name: String
+}
