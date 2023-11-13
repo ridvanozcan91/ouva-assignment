@@ -9,21 +9,9 @@ spring:
     name: ouva-backend-assignment
 
   kafka:
-    consumer:
+    streams:
       bootstrap-servers: ${KAFKA_HOST:localhost}:${KAFKA_PORT:29092}
-      group-id: ${spring.application.name}-group
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        # Spring generates appropriate JSON deserializer mappings according to these definitions
-        spring:
-          json:
-            trusted:
-              packages: '*'
-            value:
-              default:
-                type: 'co.ouva.assignment.dto.HeartbeatMessage'
+      application-id: ${spring.application.name}-group
 
   jpa:
     hibernate:

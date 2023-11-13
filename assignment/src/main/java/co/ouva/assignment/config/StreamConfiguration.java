@@ -16,16 +16,16 @@ import java.util.Map;
 @EnableKafkaStreams
 public class StreamConfiguration {
 
-    @Value(value = "${spring.kafka.consumer.bootstrap-servers}")
+    @Value(value = "${spring.kafka.streams.bootstrap-servers}")
     private String bootstrapAddress;
 
-    @Value(value = "${spring.kafka.consumer.group-id}")
-    private String groupId;
+    @Value(value = "${spring.kafka.streams.application-id}")
+    private String applicationId;
 
     @Bean(name = KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME)
     public KafkaStreamsConfiguration getConfiguration() {
         Map<String, Object> properties = new HashMap<>();
-        properties.put(StreamsConfig.APPLICATION_ID_CONFIG, groupId);
+        properties.put(StreamsConfig.APPLICATION_ID_CONFIG, applicationId);
         properties.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         properties.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         properties.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
