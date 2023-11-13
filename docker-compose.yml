@@ -67,5 +67,19 @@ services:
     environment:
       - APP_KAFKA__BOOTSTRAP_SERVER=broker:9092
 
+  ouva-assignment:
+    image: ouva/assignment:0.0.1
+    container_name: ouva-assignment
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      - KAFKA_HOST=broker
+      - KAFKA_PORT=9092
+      - POSTGRES_HOST=postgres
+
 volumes:
   postgres_data:
