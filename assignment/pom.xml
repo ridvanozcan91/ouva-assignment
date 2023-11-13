@@ -100,6 +100,7 @@
             <groupId>org.rocksdb</groupId>
             <artifactId>rocksdbjni</artifactId>
             <version>6.29.4.1</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.graphql</groupId>
@@ -117,10 +118,6 @@
                         <exclude>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                        </exclude>
-                        <exclude>
-                            <groupId>org.rocksdb</groupId>
-                            <artifactId>rocksdbjni</artifactId>
                         </exclude>
                     </excludes>
                 </configuration>
