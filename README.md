@@ -90,6 +90,13 @@ Test your code with your framework of choice and show coverage report. We want t
 
 Save your code base to a private GitHub or GitLab repository with a `Dockerfile`. We will build your application with the `Dockerfile` you provided in your project, and will run your image according to your directions. Do your best to minimize your docker image.
 
+* git clone https://github.com/ridvanozcan91/ouva-assignment.git
+* cd assignment
+* docker run -it --rm -v "$PWD":/work -w /work openjdk:17-jdk-slim-buster ./mvnw package
+* docker build -t ouva/assignment:0.0.1 .
+* cd ..
+* docker-compose up
+
 ## Documentation
 
 In general, use as much inline comments on your code as possible. If you brought in an entire unchanged code from outside, make sure to document the source. 
